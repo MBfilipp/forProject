@@ -63,13 +63,7 @@ document.addEventListener('DOMContentLoaded', function(){
             addTargetFunc(counter++, inputAdd.value);
             inputAdd.value = '';
         }else{
-            let TIME = setTimeout(() => {
-                inputAdd.style = 'box-shadow: 0 0 6px #F32828';
-            },50);
-            setTimeout(() => {
-                clearTimeout(TIME);
-                inputAdd.style = 'border-color: none';
-            },500);
+            borderWarning(inputAdd);
         }
     }
     buttonSetting.addEventListener('click', settingTargetEvent);
@@ -79,32 +73,14 @@ document.addEventListener('DOMContentLoaded', function(){
             textElement.innerHTML = inputTextSetting.value;
             inputTextSetting.value = '';
             inputNumberSetting.value = '';  
-        }else if(inputNumberSetting.value == false ){
-             let TIME = setTimeout(() => {
-                inputNumberSetting.style = 'box-shadow: 0 0 6px #F32828';
-            },50);
-            setTimeout(() => {
-                clearTimeout(TIME);
-                inputNumberSetting.style = 'border-color: none';
-            },500);
+        }else if(inputNumberSetting.value == false){
+            borderWarning(inputNumberSetting);
         }else if(inputTextSetting.value == false){
-            let TIME = setTimeout(() => {
-                inputTextSetting.style = 'box-shadow: 0 0 6px #F32828';
-            },50);
-            setTimeout(() => {
-                clearTimeout(TIME);
-                inputTextSetting.style = 'border-color: none';
-            },500);
-            }else if(document.getElementsByClassName(inputNumberSetting.value)[1] == undefined){
-                let TIME = setTimeout(() => {
-                    inputNumberSetting.style = 'box-shadow: 0 0 6px #F32828';
-                },50);
-                setTimeout(() => {
-                    clearTimeout(TIME);
-                    inputNumberSetting.style = 'border-color: none';
-                },500);
-            }
+            borderWarning(inputTextSetting);
+        }else if(document.getElementsByClassName(inputNumberSetting.value)[1] == undefined){
+            borderWarning(inputNumberSetting);
         }
+    }
     buttonDelete.addEventListener('click', buttonTargetEvent);
     function buttonTargetEvent(){
         if(inputDelete.value && document.getElementsByClassName(inputDelete.value)[1]){
@@ -113,14 +89,17 @@ document.addEventListener('DOMContentLoaded', function(){
             inputDelete.value = '';
             counter--;
         }else{
-            let TIME = setTimeout(() => {
-                inputDelete.style = 'box-shadow: 0 0 6px #F32828';
-            },50);
-            setTimeout(() => {
-                clearTimeout(TIME);
-                inputDelete.style = 'border-color: none';
-            },500);
+            borderWarning(inputDelete);
         }
+    }
+    function borderWarning(elem){
+        let TIME = setTimeout(() => {
+            elem.style = 'box-shadow: 0 0 6px #F32828';
+        },50);
+        setTimeout(() => {
+            clearTimeout(TIME);
+            elem.style = 'border-color: none';
+        },500);
     }
     function addTargetFunc(firstText, lastText){
         let divRow = document.createElement('div');
@@ -148,7 +127,3 @@ document.addEventListener('DOMContentLoaded', function(){
         divRow.classList.add(firstText);
     }
 });
-/* <div class="row main-list">
-    <div class="col-md-2"><h3 id="h3-number">1</h3></div>
-    <div class="col-md-10"><h3 class="text-truncate" style="width: 50rem" id="h3-text">addasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasdddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddaddasddad</h3></div>
-</div> */
