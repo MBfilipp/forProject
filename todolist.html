@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="todolist.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>TodoList</title>
+  </head>
+  <body>
+
+    <script src="todolist.js"></script>
+    <div class="container border mt-3" style="height: 900px;">
+      <div class="row text-center shadow-sm page-header border-bottom" style="height: 73px;">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12">
+              <h3 class="navbar-brand">TodoList</h3>
+              <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#" id="aAdd">Add</a>
+                    <a class="nav-item nav-link" href="#" id="aSetting">Setting</a>
+                    <a class="nav-item nav-link" href="#" id="aDelete">Delete</a>
+                </div>
+              </div>
+          </nav>
+      </div> 
+        <div class="row text-center" style="height: 826px; overflow: scroll; overflow-x: hidden;">
+          <div class="col-md-12" id="div-list">
+
+                <div class="row hide" id="add-list">
+                    <div class="col-md-10 pt-3"><input type="text" id="add-input" placeholder="Type of text" class="form-control input-lg"></div>
+                    <div class="col-md-2 pt-3"><button type="submit" id="add-button" class="btn btn-primary button-add-list">Add a target</button></div>
+                </div>
+                <div class="row hide" id="setting-list">
+                        <div class="col-md-1 pt-3"><input type="text" id="setting-number-input" placeholder="Num" class="form-control"></div>
+                        <div class="col-md-9 pt-3"><input type="text" id="setting-text-input" placeholder="Type of text" class="form-control"></div>
+                        <div class="col-md-2 pt-3"><button type="submit" id="setting-button" class="btn btn-warning button-setting-list">Setting a target</button></div>
+                </div>
+                <div class="row hide" id="delete-list">
+                  <div class="col-md-1 pt-3"><input type="text" id="delete-input" placeholder="Num" class="form-control input-lg"></div>
+                  <div class="col-md-2 pt-3"><button type="submit" id="delete-button" class="btn btn-danger button-add-list">Delete a target</button></div>
+                </div>
+                
+                
+          </div>
+                
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
