@@ -17,44 +17,43 @@ document.addEventListener('DOMContentLoaded', function(){
     addA.addEventListener('click', addAFunc);
     function addAFunc(){
         if(divAdd.classList.contains('hide')){
-            divAdd.classList.remove('hide');
-            divSetting.classList.add('hide');
-            divDelete.classList.add('hide');
-            addA.classList.add('active');
-            deleteA.classList.remove('active');
-            settingA.classList.remove('active');
+            classRemove(divAdd, 'hide');
+            classAdd(divSetting, 'hide');
+            classAdd(divDelete, 'hide');
+            classAdd(addA, 'active');
+            classRemove(deleteA, 'active');
+            classRemove(settingA, 'active');
         }else{
-            divAdd.classList.add('hide');
-            addA.classList.remove('active');
+            classAdd(divAdd, 'hide');
+            classRemove(addA, 'active');
         }
     };
     settingA.addEventListener('click', settingAFunc);
     function settingAFunc(){
         if(divSetting.classList.contains('hide')){
-            divSetting.classList.remove('hide');
-            divDelete.classList.add('hide');
-            divAdd.classList.add('hide');
-            settingA.classList.add('active');
-            addA.classList.remove('active');
-            deleteA.classList.remove('active');
-            
+            classRemove(divSetting, 'hide');
+            classAdd(divDelete, 'hide');
+            classAdd(divDdivAddelete, 'hide');
+            classAdd(settingA, 'active');
+            classRemove(addA, 'active');
+            classRemove(deleteA, 'active');         
         }else{
-            divSetting.classList.add('hide');
-            settingA.classList.remove('active');
+            classAdd(divSetting, 'hide');
+            classRemove(settingA, 'active');
         }
     }
     deleteA.addEventListener('click', deleteAFunc);
     function deleteAFunc(){
         if(divDelete.classList.contains('hide')){
-            divDelete.classList.remove('hide');
-            divAdd.classList.add('hide');
-            divSetting.classList.add('hide');
-            deleteA.classList.add('active');
-            addA.classList.remove('active');
-            settingA.classList.remove('active');    
+            classRemove(divDelete, 'hide');
+            classAdd(divAdd, 'hide');
+            classAdd(divSetting, 'hide');
+            classAdd(deleteA, 'active');
+            classRemove(addA, 'active');
+            classRemove(settingA, 'active');  
         }else{
-            divDelete.classList.add('hide');
-            deleteA.classList.remove('active');
+            classAdd(divDelete, 'hide');
+            classRemove(deleteA, 'active');
         }
     }
     buttonAdd.addEventListener('click', addTargetEvent);
@@ -91,6 +90,12 @@ document.addEventListener('DOMContentLoaded', function(){
         }else{
             borderWarning(inputDelete);
         }
+    }
+    function classAdd(name, classAdd){
+        return name.classList.add(classAdd);
+    }
+    function classRemove(name, classRemove){
+        return name.classList.remove(classRemove);
     }
     function borderWarning(elem){
         let TIME = setTimeout(() => {
