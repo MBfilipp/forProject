@@ -110,27 +110,27 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     function addTargetFunc(firstText, lastText){
         let divRow = document.createElement('div');
-        divRow.classList.add('row');
-        divRow.classList.add('main-list');
+        classAdd(divRow, 'row');
+        classAdd(divRow, 'main-list');
         divList.appendChild(divRow);
         let divColMd2 = document.createElement('div');
-        divColMd2.classList.add('col-md-2');
+        classAdd(divColMd2, 'col-md-2');
         let divColMd10 = document.createElement('div');
-        divColMd10.classList.add('col-md-10');
+        classAdd(divColMd10, 'col-md-10');
         divRow.appendChild(divColMd2);
         divRow.appendChild(divColMd10);
         let h3Number = document.createElement('h3');
         h3Number.id = 'h3-number';
         let h3Text = document.createElement('h3');
         h3Text.id = 'h3-text';
-        h3Text.classList.add('text-truncate');
+        classAdd(h3Text, 'text-truncate');
         h3Text.style = 'width: 50rem';
         divColMd2.appendChild(h3Number);
         divColMd10.appendChild(h3Text);
         h3Number.innerHTML = firstText;
         h3Text.innerHTML = lastText;
-        h3Number.classList.add(firstText);
-        h3Text.classList.add(firstText);
-        divRow.classList.add(firstText);
+        classAdd(h3Number, firstText);
+        classAdd(h3Text, firstText);
+        classAdd(divRow, firstText);
     }
 });
