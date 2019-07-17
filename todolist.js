@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', function(){
-    let inputAdd = document.getElementById('add-input');
-    let inputNumberSetting = document.getElementById('setting-number-input');
-    let inputTextSetting = document.getElementById('setting-text-input');
-    let inputDelete = document.getElementById('delete-input');
-    let buttonAdd = document.getElementById('add-button');
-    let buttonSetting = document.getElementById('setting-button');
-    let buttonDelete = document.getElementById('delete-button');
-    let divAdd = document.getElementById('add-list');
-    let divSetting = document.getElementById('setting-list');
-    let divList = document.getElementById('div-list');
-    let divDelete = document.getElementById('delete-list');
-    let addA = document.getElementById('aAdd');
-    let deleteA = document.getElementById('aDelete');
-    let settingA = document.getElementById('aSetting');
+    let inputAdd = getById('add-input');
+    let inputNumberSetting = getById('setting-number-input');
+    let inputTextSetting = getById('setting-text-input');
+    let inputDelete = getById('delete-input');
+    let buttonAdd = getById('add-button');
+    let buttonSetting = getById('setting-button');
+    let buttonDelete = getById('delete-button');
+    let divAdd = getById('add-list');
+    let divSetting = getById('setting-list');
+    let divList = getById('div-list');
+    let divDelete = getById('delete-list');
+    let addA = getById('aAdd');
+    let deleteA = getById('aDelete');
+    let settingA = getById('aSetting');
     let counter = 1;
     addA.addEventListener('click', addAFunc);
     function addAFunc(){
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if(divSetting.classList.contains('hide')){
             classRemove(divSetting, 'hide');
             classAdd(divDelete, 'hide');
-            classAdd(divDdivAddelete, 'hide');
+            classAdd(divAdd, 'hide');
             classAdd(settingA, 'active');
             classRemove(addA, 'active');
             classRemove(deleteA, 'active');         
@@ -86,10 +86,12 @@ document.addEventListener('DOMContentLoaded', function(){
             let divElement = document.getElementsByClassName(inputDelete.value)[0];
             divElement.remove();
             inputDelete.value = '';
-            counter--;
         }else{
             borderWarning(inputDelete);
         }
+    }
+    function getById(Id){
+        return document.getElementById(Id);
     }
     function classAdd(name, classAdd){
         return name.classList.add(classAdd);
