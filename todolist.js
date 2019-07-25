@@ -1,95 +1,15 @@
 document.addEventListener('DOMContentLoaded', function(){
-    let inputAdd = getById('add-input');
-    let inputNumberSetting = getById('setting-number-input');
-    let inputTextSetting = getById('setting-text-input');
-    let inputDelete = getById('delete-input');
-    let buttonAdd = getById('add-button');
-    let buttonSetting = getById('setting-button');
-    let buttonDelete = getById('delete-button');
-    let divAdd = getById('add-list');
-    let divSetting = getById('setting-list');
-    let divList = getById('div-list');
-    let divDelete = getById('delete-list');
-    let addA = getById('aAdd');
-    let deleteA = getById('aDelete');
-    let settingA = getById('aSetting');
-    let counter = 1;
+    import {addAFunc, settingAFunc, deleteAFunc} from './moduls/AFuncModul.js';
+    import {addTargetEvent, settingTargetEvent, buttonTargetEvent} from './moduls/TargetEventModul.js';
+    import {buttonAdd,buttonSetting,buttonDelete,divList,addA,settingA,deleteA} from './moduls/constModul.js';
+    
     addA.addEventListener('click', addAFunc);
-    function addAFunc(){
-        if(divAdd.classList.contains('hide')){
-            classRemove(divAdd, 'hide');
-            classAdd(divSetting, 'hide');
-            classAdd(divDelete, 'hide');
-            classAdd(addA, 'active');
-            classRemove(deleteA, 'active');
-            classRemove(settingA, 'active');
-        }else{
-            classAdd(divAdd, 'hide');
-            classRemove(addA, 'active');
-        }
-    };
     settingA.addEventListener('click', settingAFunc);
-    function settingAFunc(){
-        if(divSetting.classList.contains('hide')){
-            classRemove(divSetting, 'hide');
-            classAdd(divDelete, 'hide');
-            classAdd(divAdd, 'hide');
-            classAdd(settingA, 'active');
-            classRemove(addA, 'active');
-            classRemove(deleteA, 'active');         
-        }else{
-            classAdd(divSetting, 'hide');
-            classRemove(settingA, 'active');
-        }
-    }
     deleteA.addEventListener('click', deleteAFunc);
-    function deleteAFunc(){
-        if(divDelete.classList.contains('hide')){
-            classRemove(divDelete, 'hide');
-            classAdd(divAdd, 'hide');
-            classAdd(divSetting, 'hide');
-            classAdd(deleteA, 'active');
-            classRemove(addA, 'active');
-            classRemove(settingA, 'active');  
-        }else{
-            classAdd(divDelete, 'hide');
-            classRemove(deleteA, 'active');
-        }
-    }
     buttonAdd.addEventListener('click', addTargetEvent);
-    function addTargetEvent(){
-        if(inputAdd.value){
-            addTargetFunc(counter++, inputAdd.value);
-            inputAdd.value = '';
-        }else{
-            borderWarning(inputAdd);
-        }
-    }
-    buttonSetting.addEventListener('click', settingTargetEvent);
-    function settingTargetEvent(){
-        if(inputNumberSetting.value && inputTextSetting.value && document.getElementsByClassName(inputNumberSetting.value)[1] != undefined){
-            let textElement = document.getElementsByClassName(inputNumberSetting.value)[2];
-            textElement.innerHTML = inputTextSetting.value;
-            inputTextSetting.value = '';
-            inputNumberSetting.value = '';  
-        }else if(inputNumberSetting.value == false){
-            borderWarning(inputNumberSetting);
-        }else if(inputTextSetting.value == false){
-            borderWarning(inputTextSetting);
-        }else if(document.getElementsByClassName(inputNumberSetting.value)[1] == undefined){
-            borderWarning(inputNumberSetting);
-        }
-    }
     buttonDelete.addEventListener('click', buttonTargetEvent);
-    function buttonTargetEvent(){
-        if(inputDelete.value && document.getElementsByClassName(inputDelete.value)[1]){
-            let divElement = document.getElementsByClassName(inputDelete.value)[0];
-            divElement.remove();
-            inputDelete.value = '';
-        }else{
-            borderWarning(inputDelete);
-        }
-    }
+    buttonSetting.addEventListener('click', settingTargetEvent);
+
     function getById(Id){
         return document.getElementById(Id);
     }

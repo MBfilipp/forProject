@@ -1,0 +1,16 @@
+const inputAdd = getById('add-input');
+const inputNumberSetting = getById('setting-number-input');
+const inputTextSetting = getById('setting-text-input');
+const inputDelete = getById('delete-input');
+const buttonAdd = getById('add-button');
+const buttonSetting = getById('setting-button');
+const buttonDelete = getById('delete-button');
+const divAdd = getById('add-list');
+const divSetting = getById('setting-list');
+const divList = getById('div-list');
+const divDelete = getById('delete-list');
+const addA = getById('aAdd');
+const deleteA = getById('aDelete');
+const settingA = getById('aSetting');
+let counter = 1;
+export {inputAdd,inputNumberSetting,inputTextSetting,inputDelete,buttonAdd,buttonSetting,buttonDelete,divAdd,divSetting,divList,divDelete,addA,settingA,deleteA,counter};
