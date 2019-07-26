@@ -1,10 +1,4 @@
 document.addEventListener('DOMContentLoaded', function(){
-    
-    //Import files
-
-    import borderWarning from "./moduls/addBorderRed.js";
-    import getById from "./moduls/getById.js";
-    import {classAdd, classRemove} from "./moduls/classSetting.js";
 
     //Add const and let variables
 
@@ -104,6 +98,24 @@ document.addEventListener('DOMContentLoaded', function(){
         }else{
             borderWarning(inputDelete);
         }
+    }
+    function borderWarning(elem){
+        let TIME = setTimeout(() => {
+            elem.style = 'box-shadow: 0 0 6px #F32828';
+        },  50);
+        setTimeout(() => {
+            clearTimeout(TIME);
+            elem.style = 'border-color: none';
+        },  500);
+    }
+    function classAdd(name, classAdd){
+        return name.classList.add(classAdd);
+    }
+    function classRemove(name, classRemove){
+        return name.classList.remove(classRemove);
+    }
+    function getById(Id){
+        return document.getElementById(Id);
     }
     function addTargetFunc(firstText, lastText){
         let divRow = document.createElement('div');
