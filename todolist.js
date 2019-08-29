@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
     function settingTargetEvent(){
-        if(inputNumberSetting.value && inputTextSetting.value && document.getElementsByClassName(inputNumberSetting.value)[1] != undefined){
+        if(inputNumberSetting.value && inputTextSetting.value && document.getElementsByClassName(inputNumberSetting.value)[1] !== undefined){
             let textElement = document.getElementsByClassName(inputNumberSetting.value)[2];
             textElement.innerHTML = inputTextSetting.value;
             inputTextSetting.value = '';
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function(){
             borderWarning(inputNumberSetting);
         }else if(inputTextSetting.value == false){
             borderWarning(inputTextSetting);
-        }else if(document.getElementsByClassName(inputNumberSetting.value)[1] == undefined){
+        }else if(document.getElementsByClassName(inputNumberSetting.value)[1] === undefined){
             borderWarning(inputNumberSetting);
         }
     }
