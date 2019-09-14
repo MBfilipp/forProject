@@ -6,12 +6,12 @@ body {
 
 .block {
     width: 800px;
-    height: 300px;
+    height: 312px;
     display: block;
     margin: 0 auto;
     margin-top: 70px;
     border-radius: 3px;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 .question {
@@ -28,19 +28,13 @@ body {
     padding: 0;
 }
 
-.progress-bar {
-    width: 800px;
-    height: 5px;
-    background-color: #FEB3B8;
-    border-bottom: 1px solid black;
-    overflow: hidden;
-}
-
 .progress-line {
     width: 800px;
-    height: 5px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
     background-color: #99FEC8;
-    transition: 1s linear;
+    border-bottom: 2px solid black;
 }
 
 .quest-blocks {
@@ -49,7 +43,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 800px;
-    height: 253px;
+    height: 250px;
     margin: 0;
     padding: 0;
 }

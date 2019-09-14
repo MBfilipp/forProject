@@ -10,6 +10,9 @@ let question = {
 };
 
 let answers = {
+
+    // Four elems for fix bug with questionCounter
+
     0: {
         1: "grey",
         2: "green"
@@ -19,6 +22,10 @@ let answers = {
         2: "3"
     },
     2: {
+        1: "foo",
+        2: "bar"
+    },
+    3: {
         1: "foo",
         2: "bar"
     }
@@ -42,18 +49,20 @@ let firstBlock = document.querySelector(".first-block");
 let secondBlock = document.querySelector(".second-block");
 let pInFirstBlock = document.querySelector(".first-block p");
 let pInSecondBlock = document.querySelector(".second-block p");
+let pInFirstBlockID = document.getElementById("quest-block-1")
+let pInSecondBlockID = document.getElementById("quest-block-2")
 let questBlocks = document.querySelector(".quest-blocks");
 let pQuestion = document.querySelector("#question-p-id");
 
 // Progress-bar
 
 let progressBar = document.querySelector(".progress-bar");
-let progressLine = document.querySelector(".progress-bar .progress-line");
+let progressLine = document.getElementById("progress-line-id");
 let increaseLeft = [];
-let leftProcent = Math.floor(800 / questionLimit);
+let leftProcent = (100 / questionLimit);
 
 for(let i = 0; i < questionLimit; i++) {
-    increaseLeft.push(leftProcent + "px");
+    increaseLeft.push(leftProcent);
 }
 
 // Insert p value
@@ -64,43 +73,38 @@ pInSecondBlock.innerHTML = answers[questionCounter][2];
 
 // Add eventListeners
 
-questBlocks.addEventListener("click", function eventList(event) {
-
+questBlocks.addEventListener("click", (event) => {
     
+    //logic
 
-    if(event.target.id == "quest-block" && questionCounter < questionLimit) {
-        //logs
+    progressLine.value += increaseLeft[questionCounter];
 
-        console.log(correctAnswerCounter);
+    if(event.target.id === "quest-block-1" || event.target.id === "quest-block-2") {
 
-        //logic
-
-        progressLine.style.marginLeft = `${"+" + increaseLeft[questionCounter]}`;
-
-        if(event.target.getAttribute("name") == rightAnswers[questionCounter]) {
+        if(event.target.getAttribute("name") == rightAnswers[questionCounter]){
             questionCounter++;
             correctAnswerCounter++;
             pQuestion.innerHTML = question[questionCounter];
             pInFirstBlock.innerHTML = answers[questionCounter][1];
             pInSecondBlock.innerHTML = answers[questionCounter][2];
-            console.log("correct");
         }else {
             questionCounter++;
             pQuestion.innerHTML = question[questionCounter];
             pInFirstBlock.innerHTML = answers[questionCounter][1];
-            pInSecondBlock.innerHTML = answers[questionCounter][2];     
+            pInSecondBlock.innerHTML = answers[questionCounter][2];
         }
+
         if(questionCounter == questionLimit) {
-            questionCounter++;
+            pInSecondBlockID.id = "";
+            pInFirstBlockID.id = "";
+            pQuestion.innerHTML = "Ваш результат";
+            pInFirstBlock.innerHTML = "Правильных ответов " + correctAnswerCounter;
+            pInSecondBlock.innerHTML = correctAnswerCounter + "/" + questionLimit;
+            return;
         }
-        
-    }else {
-        pQuestion.name = '';
-        pInFirstBlock.name = '';
-        pQuestion.innerHTML = "Ваш результат";
-        pInFirstBlock.innerHTML = "Правильных ответов " + correctAnswerCounter;
-        pInSecondBlock.innerHTML = correctAnswerCounter + "/" + questionLimit;
+
     }
+
 });
 
 
